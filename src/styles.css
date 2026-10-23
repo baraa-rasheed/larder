@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3efe7;
+  --color-canvas: #e7e1d6;
+  --color-surface: #fffcf8;
+  --color-fg: #221c18;
+  --color-muted: #74685f;
+  --color-primary: #c24e2a;
+  --color-primary-fg: #fff8f4;
+  --color-line: #e6ddd2;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --radius-card: 1.5rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+.tap {
+  transition: scale 150ms ease-out;
+}
+
+.tap:active:not(:disabled) {
+  scale: 0.96;
+}
+
+.sheet-panel {
+  transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.fade-scrim {
+  transition: opacity 200ms ease-out;
+}
+
+.enter-up {
+  animation: fadeInUp 420ms ease-out both;
+}
+
+.enter-up:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.enter-up:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tap,
+  .sheet-panel,
+  .fade-scrim,
+  .enter-up {
+    animation: none;
+    transition: none;
+  }
+}
