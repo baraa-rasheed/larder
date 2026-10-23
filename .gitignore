@@ -11,3 +11,8 @@ artifacts
 .env
 .env.*
 .node_modules.lock
+mobile/.expo
+**/.expo
+mobile/dist
+
+

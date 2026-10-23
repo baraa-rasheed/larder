@@ -1,21 +1,24 @@
 # Larder
 
-Phone-first pantry app. Paste a Walmart receipt (or a photo of one), then cook from what you already have.
+Expo SDK 58 pantry app. Paste a Walmart receipt, then cook from what you already have.
 
-## What it does
-
-- Import a receipt into the pantry. A labeled sample receipt is included so you can try it without a real one.
-- Cook filters recipes by diet and time. Cooking deducts what you used.
-- The shopping list is grouped by aisle. Checked items can be shelved back into the pantry.
-- A 7-day plan fills gaps onto the list.
-
-Data stays in the browser (`localStorage`). There is no account and no live Walmart login. Walmart does not offer a public shopper purchase API; a live account link would need a receipt partner such as Knot or BlinkReceipt.
+Native tabs use the system tab bar on iOS and Android (`expo-router/native-tabs`). The five tabs are Home, Cook, Pantry, List, and Plan.
 
 ## Run
 
 ```bash
+cd mobile
 npm install
-npm run dev
+npx expo start
 ```
 
-Open the app on port 8080.
+Open it in a development build. Expo Go for SDK 58 was not on the stores yet on the October 15, 2026 release, so a dev build is the supported way to run it on a phone.
+
+Web preview:
+
+```bash
+cd mobile
+npx expo start --web
+```
+
+Data stays on the device. There is no account and no live Walmart login. Walmart does not offer a public shopper purchase API.
